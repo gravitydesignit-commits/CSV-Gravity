@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stock Media Metadata Generator</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Google Fonts for modern typography -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <div class="app-container">
+        <!-- Header -->
+        <header class="app-header">
+            <div class="logo">
+                <span class="logo-icon">M</span>
+                <h1>Metadata Generator</h1>
+            </div>
+            <div class="header-actions">
+                <button id="download-csv-btn" class="btn btn-primary">Download CSV</button>
+            </div>
+        </header>
+
+        <main class="main-content">
+            <!-- Left Panel: Inputs -->
+            <section class="metadata-panel">
+                <div class="input-group">
+                    <label for="asset-type">Asset Type</label>
+                    <div class="select-wrapper">
+                        <select id="asset-type">
+                            <option value="Photo">Photo</option>
+                            <option value="Vector/Illustration">Vector/Illustration</option>
+                            <option value="Video">Video</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="input-group">
+                    <div class="label-row">
+                        <label for="title-input">Title / Description</label>
+                        <span class="char-count" id="title-count">0 chars</span>
+                    </div>
+                    <textarea id="title-input" placeholder="Enter a descriptive title for your asset..." rows="3"></textarea>
+                    <div class="input-actions">
+                        <button id="copy-title-btn" class="btn btn-sm btn-secondary">Copy Title</button>
+                    </div>
+                </div>
+
+                <div class="input-group">
+                    <div class="label-row">
+                        <label for="keywords-input">Keywords / Tags</label>
+                        <span class="char-count" id="keyword-count">0 tags</span>
+                    </div>
+                    <textarea id="keywords-input" placeholder="Paste your comma-separated keywords here..." rows="6"></textarea>
+                    <div class="input-actions">
+                        <button id="copy-keywords-btn" class="btn btn-sm btn-secondary">Copy Keywords</button>
+                        <button id="format-btn" class="btn btn-sm btn-outline">Format & Clean</button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Right Panel: Settings & Constraints -->
+            <aside class="settings-panel">
+                <h2>Settings & Constraints</h2>
+                
+                <div class="setting-group">
+                    <label for="max-tags">Tag Limit</label>
+                    <input type="number" id="max-tags" value="50" min="1" max="100">
+                </div>
+
+                <div class="setting-group">
+                    <label for="max-title-length">Title Length Limit</label>
+                    <input type="number" id="max-title-length" value="200" min="10">
+                </div>
+
+                <div class="setting-group">
+                    <label>Modifications</label>
+                    <div class="row">
+                        <div class="col">
+                            <input type="text" id="prefix-input" placeholder="Prefix (start)">
+                        </div>
+                        <div class="col">
+                            <input type="text" id="suffix-input" placeholder="Suffix (end)">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="setting-group">
+                    <label for="negative-keywords">Negative Keywords</label>
+                    <textarea id="negative-keywords" placeholder="Exclude these keywords (comma separated)..." rows="3"></textarea>
+                </div>
+
+                <div class="setting-group">
+                    <label for="negative-title-words">Negative Title Words</label>
+                    <textarea id="negative-title-words" placeholder="Exclude words from title..." rows="3"></textarea>
+                </div>
+            </aside>
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
